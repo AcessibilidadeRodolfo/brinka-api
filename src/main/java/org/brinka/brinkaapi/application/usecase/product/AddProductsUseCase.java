@@ -1,5 +1,6 @@
 package org.brinka.brinkaapi.application.usecase.product;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.brinka.brinkaapi.application.annotation.UseCase;
 import org.brinka.brinkaapi.application.dto.AddProductUseCaseInput;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @UseCase
 @RequiredArgsConstructor
+@Transactional
 public class AddProductsUseCase {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
@@ -25,8 +27,8 @@ public class AddProductsUseCase {
     }
 
     private Product toProduct(AddProductUseCaseInput input) {
-        var category = categoryRepository.findById(input.categoryId())
-                .orElseThrow(() -> new CategoryNotFoundException(input.categoryId())) ;
+        var category = categoryRepository.findById(input.categoriaId())
+                .orElseThrow(() -> new CategoryNotFoundException(input.categoriaId())) ;
 
         return Product.builder()
                 .id(null)

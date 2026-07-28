@@ -9,8 +9,6 @@ import org.brinka.brinkaapi.domain.model.Product;
 import org.brinka.brinkaapi.domain.repository.CategoryRepository;
 import org.brinka.brinkaapi.domain.repository.ProductRepository;
 
-import java.util.List;
-
 @UseCase
 @RequiredArgsConstructor
 public class UpdateProductUseCase {
@@ -21,10 +19,10 @@ public class UpdateProductUseCase {
         var oldProduct = productRepository.findProductById(input.id())
                 .orElseThrow(() -> new ProductNotFoundException(input.id()));
 
-        var category = input.categoryId() == null ?
+        var category = input.categoriaId() == null ?
                 oldProduct.getCategoria() :
-                categoryRepository.findById(input.categoryId())
-                        .orElseThrow(() -> new CategoryNotFoundException(input.categoryId()));
+                categoryRepository.findById(input.categoriaId())
+                        .orElseThrow(() -> new CategoryNotFoundException(input.categoriaId()));
 
         var newProduct = Product.builder()
                 .id(oldProduct.getId())

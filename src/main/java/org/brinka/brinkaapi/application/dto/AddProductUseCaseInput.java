@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public record AddProductUseCaseInput(
         String imagem,
         String nome,
-        Integer categoryId,
+        Integer categoriaId,
         String descricao,
         BigDecimal preco,
         Integer estoque

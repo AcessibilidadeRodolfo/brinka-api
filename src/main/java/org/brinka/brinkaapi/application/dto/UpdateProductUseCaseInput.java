@@ -6,7 +6,7 @@ public record UpdateProductUseCaseInput(
         Integer id,
         String imagem,
         String nome,
-        Integer categoryId,
+        Integer categoriaId,
         String descricao,
         BigDecimal preco,
         Integer estoque

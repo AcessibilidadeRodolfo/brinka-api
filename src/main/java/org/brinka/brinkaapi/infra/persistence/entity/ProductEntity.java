@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 @Table(name = "tbl_boneco")
 public class ProductEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String imagem;
     private String nome;
