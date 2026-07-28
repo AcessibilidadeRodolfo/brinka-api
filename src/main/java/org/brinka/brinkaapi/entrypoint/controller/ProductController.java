@@ -59,7 +59,7 @@ public class ProductController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<ProductResponse> patchProduct(@PathVariable @NotNull Integer id, @RequestBody @Valid PatchProductRequest productRequest) {
+    public ResponseEntity<ProductResponse> patchProduct(@PathVariable Integer id, @RequestBody @Valid PatchProductRequest productRequest) {
         var response = updateProductUseCase.execute(requestMapper.toInput(id, productRequest));
         return ResponseEntity.ok(responseMapper.toResponse(response));
     }

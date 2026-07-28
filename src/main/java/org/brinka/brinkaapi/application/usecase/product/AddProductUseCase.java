@@ -8,8 +8,6 @@ import org.brinka.brinkaapi.domain.model.Product;
 import org.brinka.brinkaapi.domain.repository.CategoryRepository;
 import org.brinka.brinkaapi.domain.repository.ProductRepository;
 
-import java.util.List;
-
 @UseCase
 @RequiredArgsConstructor
 public class AddProductUseCase {
@@ -17,8 +15,8 @@ public class AddProductUseCase {
     private final CategoryRepository categoryRepository;
 
     public Product execute(AddProductUseCaseInput input) {
-        var category = categoryRepository.findById(input.categoryId())
-                .orElseThrow(() -> new CategoryNotFoundException(input.categoryId())) ;
+        var category = categoryRepository.findById(input.categoriaId())
+                .orElseThrow(() -> new CategoryNotFoundException(input.categoriaId()));
 
         var product = Product.builder()
                 .id(null)
