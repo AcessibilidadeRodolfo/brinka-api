@@ -1,13 +1,12 @@
 package org.brinka.brinkaapi.entrypoint.exception;
 
-import com.auth0.jwt.exceptions.JWTCreationException;
-import com.auth0.jwt.exceptions.JWTVerificationException;
 import org.brinka.brinkaapi.domain.exception.CategoryNotFoundException;
 import org.brinka.brinkaapi.domain.exception.EmailAlreadyExistsException;
 import org.brinka.brinkaapi.domain.exception.ProductNotFoundException;
 import org.brinka.brinkaapi.entrypoint.dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -16,6 +15,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    // ------- Regras de negócio -------
 
     @ExceptionHandler(CategoryNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleCategoryNotFoundException(CategoryNotFoundException ex) {
@@ -52,12 +53,22 @@ public class GlobalExceptionHandler {
                 .body(new ErrorResponse(ex.getBindingResult().toString()));
     }
 
+    // ------- Spring Security -------
+
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity<ErrorResponse> handleAuthenticationException(AuthenticationException ex) {
         return ResponseEntity
-                .status(HttpStatus.UNAUTHORIZED)
-                .body(new ErrorResponse("Credenciais inválidas"));
+                .status(401)
+                .body(new ErrorResponse("Token inválido, ou expirado"));
     }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ErrorResponse> handleAccessDenied(AccessDeniedException ex) {
+        return ResponseEntity.status(403)
+                .body(new ErrorResponse("Acesso negado"));
+    }
+
+    // ------- Erro Interno -------
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleUnexpected(Exception ex) {
