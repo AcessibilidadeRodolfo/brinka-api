@@ -48,6 +48,13 @@ public class JpaProductRepositoryAdapter implements ProductRepository {
     }
 
     @Override
+    public List<Product> findProductsById(List<Integer> id) {
+        return jpaRepository.findAllById(id).stream()
+                .map(mapper::toDomain)
+                .toList();
+    }
+
+    @Override
     public void deleteProductsById(List<Integer> ids) {
         jpaRepository.deleteAllById(ids);
     }

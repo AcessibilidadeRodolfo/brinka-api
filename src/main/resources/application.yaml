@@ -1,4 +1,7 @@
 spring:
+  security:
+    token:
+      secret: ${APPLICATION_SECRET}
   config:
     import: optional:file:.env[.properties]
   application:

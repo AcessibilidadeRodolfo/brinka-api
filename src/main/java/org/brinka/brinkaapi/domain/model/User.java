@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 @Builder
 public class User {
-    private Long id;
+    private Integer id;
     private String nome;
     private String email;
     private String telefone;
