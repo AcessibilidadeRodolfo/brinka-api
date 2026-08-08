@@ -8,11 +8,24 @@ import jakarta.validation.constraints.PositiveOrZero;
 import java.math.BigDecimal;
 
 public record ProductRequest(
-        @NotBlank String imagem,
-        @NotBlank String nome,
-        @NotNull Integer categoriaId,
-        @NotBlank String descricao,
-        @NotNull @Positive BigDecimal preco,
-        @NotNull @PositiveOrZero Integer estoque
+        @NotBlank(message = "obrigatória")
+        String imagem,
+
+        @NotBlank(message = "obrigatório")
+        String nome,
+
+        @NotNull(message = "obrigatório")
+        Integer categoriaId,
+
+        @NotBlank(message = "obrigatória")
+        String descricao,
+
+        @NotNull(message = "obrigatório")
+        @Positive(message = "deve ser maior que zero")
+        BigDecimal preco,
+
+        @NotNull(message = "obrigatório")
+        @PositiveOrZero(message = "deve ser maior ou igual à zero")
+        Integer estoque
 ) {
 }
