@@ -1,4 +1,4 @@
-package org.brinka.brinkaapi.application.usecase.user;
+package org.brinka.brinkaapi.application.usecase.user.endereco;
 
 import lombok.RequiredArgsConstructor;
 import org.brinka.brinkaapi.application.annotation.UseCase;
