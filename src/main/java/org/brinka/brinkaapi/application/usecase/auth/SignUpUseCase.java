@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.brinka.brinkaapi.application.annotation.UseCase;
 import org.brinka.brinkaapi.application.dto.SignUpUseCaseInput;
 import org.brinka.brinkaapi.domain.exception.EmailAlreadyExistsException;
+import org.brinka.brinkaapi.domain.model.Endereco;
 import org.brinka.brinkaapi.domain.model.User;
 import org.brinka.brinkaapi.domain.repository.UserRepository;
 import org.brinka.brinkaapi.infra.security.TokenService;
@@ -27,6 +28,14 @@ public class SignUpUseCase {
                 .telefone(signUpUseCaseInput.telefone())
                 .senha(hashedPassword)
                 .ehAdmin(false)
+                .endereco(Endereco.builder()
+                        .cep(signUpUseCaseInput.endereco().cep())
+                        .rua(signUpUseCaseInput.endereco().rua())
+                        .numero(signUpUseCaseInput.endereco().numero())
+                        .complemento(signUpUseCaseInput.endereco().complemento())
+                        .cidade(signUpUseCaseInput.endereco().cidade())
+                        .estado(signUpUseCaseInput.endereco().estado())
+                        .build())
                 .build();
 
         userRepository.saveUser(user);
