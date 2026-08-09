@@ -6,7 +6,6 @@ import org.brinka.brinkaapi.application.dto.output.CartOutput;
 import org.brinka.brinkaapi.application.service.CartOutputService;
 import org.brinka.brinkaapi.domain.exception.ProductNotFoundException;
 import org.brinka.brinkaapi.domain.exception.UserNotFoundException;
-import org.brinka.brinkaapi.domain.model.Cart;
 import org.brinka.brinkaapi.domain.repository.CartRepository;
 import org.brinka.brinkaapi.domain.repository.ProductRepository;
 import org.brinka.brinkaapi.domain.repository.UserRepository;
