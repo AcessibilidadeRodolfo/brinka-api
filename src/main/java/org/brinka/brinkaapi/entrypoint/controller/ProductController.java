@@ -7,8 +7,8 @@ import org.brinka.brinkaapi.application.usecase.product.*;
 import org.brinka.brinkaapi.entrypoint.dto.request.PatchProductRequest;
 import org.brinka.brinkaapi.entrypoint.dto.request.ProductRequest;
 import org.brinka.brinkaapi.entrypoint.dto.response.ProductResponse;
-import org.brinka.brinkaapi.entrypoint.mapper.ProductRequestMapper;
-import org.brinka.brinkaapi.entrypoint.mapper.ProductResponseMapper;
+import org.brinka.brinkaapi.entrypoint.mapper.RequestMapper;
+import org.brinka.brinkaapi.entrypoint.mapper.ResponseMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +24,8 @@ public class ProductController {
     private final AddProductUseCase addProductUseCase;
     private final DeleteProductsByIdUseCase deleteProductsByIdUseCase;
     private final DeleteProductByIdUseCase deleteProductByIdUseCase;
-    private final ProductRequestMapper requestMapper;
-    private final ProductResponseMapper responseMapper;
+    private final RequestMapper requestMapper;
+    private final ResponseMapper responseMapper;
     private final GetProductByIdUseCase findProductByIdUseCase;
     private final UpdateProductUseCase updateProductUseCase;
 
