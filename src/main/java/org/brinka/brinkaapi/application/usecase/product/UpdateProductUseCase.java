@@ -2,7 +2,7 @@ package org.brinka.brinkaapi.application.usecase.product;
 
 import lombok.RequiredArgsConstructor;
 import org.brinka.brinkaapi.application.annotation.UseCase;
-import org.brinka.brinkaapi.application.dto.UpdateProductUseCaseInput;
+import org.brinka.brinkaapi.application.dto.input.UpdateProductUseCaseInput;
 import org.brinka.brinkaapi.domain.exception.CategoryNotFoundException;
 import org.brinka.brinkaapi.domain.exception.ProductNotFoundException;
 import org.brinka.brinkaapi.domain.model.Product;

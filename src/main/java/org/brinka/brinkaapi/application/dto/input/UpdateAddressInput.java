@@ -1,9 +1,9 @@
-package org.brinka.brinkaapi.application.dto;
+package org.brinka.brinkaapi.application.dto.input;
 
-public record AddressInput(
+record UpdateAddressInput(
         String cep,
         String rua,
-        Integer numero,
+        String numero,
         String complemento,
         String cidade,
         String estado

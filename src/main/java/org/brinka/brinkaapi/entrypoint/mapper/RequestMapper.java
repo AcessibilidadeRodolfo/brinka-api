@@ -1,6 +1,6 @@
 package org.brinka.brinkaapi.entrypoint.mapper;
 
-import org.brinka.brinkaapi.application.dto.*;
+import org.brinka.brinkaapi.application.dto.input.*;
 import org.brinka.brinkaapi.entrypoint.dto.request.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
