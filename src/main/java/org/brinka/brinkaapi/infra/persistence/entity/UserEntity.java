@@ -28,6 +28,8 @@ public class UserEntity implements UserDetails {
     private String telefone;
     private String senha;
     private Boolean ehAdmin;
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private EnderecoEntity endereco;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

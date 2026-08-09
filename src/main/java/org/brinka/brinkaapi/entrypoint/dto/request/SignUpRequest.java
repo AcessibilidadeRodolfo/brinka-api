@@ -1,5 +1,6 @@
 package org.brinka.brinkaapi.entrypoint.dto.request;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -20,6 +21,9 @@ public record SignUpRequest(
         @NotBlank(message = "obrigatório")
         @Email(message = "sintaxe inválida")
         String email,
+
+        @Valid
+        EnderecoRequest endereco,
 
         @NotBlank(message = "obrigatória")
         @Size(

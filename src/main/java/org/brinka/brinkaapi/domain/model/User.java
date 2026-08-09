@@ -19,6 +19,7 @@ public class User {
     private String nome;
     private String email;
     private String telefone;
+    private Endereco endereco;
     private String senha;
     private Boolean ehAdmin;
 }
