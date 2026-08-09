@@ -30,6 +30,8 @@ public class UserEntity implements UserDetails {
     private Boolean ehAdmin;
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private EnderecoEntity endereco;
+    @OneToOne(mappedBy = "usuario")
+    private CardEntity cartao;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
