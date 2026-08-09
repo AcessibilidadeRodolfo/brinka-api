@@ -11,7 +11,6 @@ import org.brinka.brinkaapi.domain.repository.UserRepository;
 public class RemoveCartItemUseCase {
     private final CartRepository repository;
     private final UserRepository userRepository;
-
     public void execute(Integer productId, String email) {
         var user = userRepository.findUserByEmail(email)
                 .orElseThrow(UserNotFoundException::new);
