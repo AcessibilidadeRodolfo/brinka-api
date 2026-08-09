@@ -2,7 +2,7 @@ package org.brinka.brinkaapi.application.usecase.user.card;
 
 import lombok.RequiredArgsConstructor;
 import org.brinka.brinkaapi.application.annotation.UseCase;
-import org.brinka.brinkaapi.application.dto.CardInput;
+import org.brinka.brinkaapi.application.dto.input.CardInput;
 import org.brinka.brinkaapi.domain.exception.CardNotFoundException;
 import org.brinka.brinkaapi.domain.exception.UserNotFoundException;
 import org.brinka.brinkaapi.domain.model.Card;

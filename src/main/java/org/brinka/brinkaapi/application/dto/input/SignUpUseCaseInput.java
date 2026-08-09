@@ -1,4 +1,4 @@
-package org.brinka.brinkaapi.application.dto;
+package org.brinka.brinkaapi.application.dto.input;
 
 public record SignUpUseCaseInput(
         String nome,

@@ -1,8 +1,8 @@
-package org.brinka.brinkaapi.application.usecase.user.endereco;
+package org.brinka.brinkaapi.application.usecase.user.address;
 
 import lombok.RequiredArgsConstructor;
 import org.brinka.brinkaapi.application.annotation.UseCase;
-import org.brinka.brinkaapi.application.dto.AddressInput;
+import org.brinka.brinkaapi.application.dto.input.AddressInput;
 import org.brinka.brinkaapi.domain.exception.AddressNotFoundException;
 import org.brinka.brinkaapi.domain.exception.UserNotFoundException;
 import org.brinka.brinkaapi.domain.model.Address;

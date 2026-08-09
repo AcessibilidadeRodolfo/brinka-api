@@ -2,7 +2,7 @@ package org.brinka.brinkaapi.application.usecase.auth;
 
 import lombok.RequiredArgsConstructor;
 import org.brinka.brinkaapi.application.annotation.UseCase;
-import org.brinka.brinkaapi.application.dto.SignUpUseCaseInput;
+import org.brinka.brinkaapi.application.dto.input.SignUpUseCaseInput;
 import org.brinka.brinkaapi.domain.exception.EmailAlreadyExistsException;
 import org.brinka.brinkaapi.domain.model.Address;
 import org.brinka.brinkaapi.domain.model.User;
