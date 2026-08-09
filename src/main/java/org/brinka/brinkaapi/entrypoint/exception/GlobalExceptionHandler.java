@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.security.authentication.BadCredentialsException;
 
 import java.util.stream.Collectors;
 
@@ -64,11 +65,18 @@ public class GlobalExceptionHandler {
 
     // ------- Spring Security -------
 
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<ErrorResponse> handleBadCredentialsException(BadCredentialsException ex) {
+        return ResponseEntity
+            .status(HttpStatus.UNAUTHORIZED)
+            .body(new ErrorResponse("E-mail ou senha inválidos"));
+    }
+
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity<ErrorResponse> handleAuthenticationException(AuthenticationException ex) {
         return ResponseEntity
-                .status(401)
-                .body(new ErrorResponse("Token inválido, ou expirado"));
+            .status(HttpStatus.UNAUTHORIZED)
+            .body(new ErrorResponse("Não foi possível autenticar o usuário"));
     }
 
     @ExceptionHandler(AccessDeniedException.class)
