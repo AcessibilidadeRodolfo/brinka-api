@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface EnderecoRepository {
     Optional<Endereco> findEnderecoByUser(User user);
+    Endereco save(Endereco endereco);
 }

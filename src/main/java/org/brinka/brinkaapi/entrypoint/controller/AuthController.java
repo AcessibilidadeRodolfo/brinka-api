@@ -7,7 +7,7 @@ import org.brinka.brinkaapi.application.usecase.auth.SignUpUseCase;
 import org.brinka.brinkaapi.entrypoint.dto.request.LoginRequest;
 import org.brinka.brinkaapi.entrypoint.dto.request.SignUpRequest;
 import org.brinka.brinkaapi.entrypoint.dto.response.AuthResponse;
-import org.brinka.brinkaapi.entrypoint.mapper.SignUpRequestMapper;
+import org.brinka.brinkaapi.entrypoint.mapper.RequestMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private final AuthorizeLoginUseCase authorizeLoginUseCase;
     private final SignUpUseCase signUpUseCase;
-    private final SignUpRequestMapper requestMapper;
+    private final RequestMapper requestMapper;
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody @Valid LoginRequest loginRequest) {

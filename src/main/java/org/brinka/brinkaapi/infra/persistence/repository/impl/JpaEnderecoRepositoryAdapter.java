@@ -23,4 +23,9 @@ public class JpaEnderecoRepositoryAdapter implements EnderecoRepository {
         return jpaRepository.findByUsuario(userMapper.toEntity(user))
                 .map(mapper::toDomain);
     }
+
+    @Override
+    public Endereco save(Endereco endereco) {
+        return mapper.toDomain(jpaRepository.save(mapper.toEntity(endereco)));
+    }
 }
