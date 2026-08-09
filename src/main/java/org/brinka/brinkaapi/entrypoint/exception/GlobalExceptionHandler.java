@@ -3,6 +3,7 @@ package org.brinka.brinkaapi.entrypoint.exception;
 import org.brinka.brinkaapi.domain.exception.CategoryNotFoundException;
 import org.brinka.brinkaapi.domain.exception.EmailAlreadyExistsException;
 import org.brinka.brinkaapi.domain.exception.ProductNotFoundException;
+import org.brinka.brinkaapi.domain.exception.UserNotFoundException;
 import org.brinka.brinkaapi.entrypoint.dto.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +29,13 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(CategoryNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleCategoryNotFoundException(CategoryNotFoundException ex) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(new ErrorResponse(ex.getMessage()));
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleUserNotFoundException(UserNotFoundException ex) {
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
                 .body(new ErrorResponse(ex.getMessage()));
