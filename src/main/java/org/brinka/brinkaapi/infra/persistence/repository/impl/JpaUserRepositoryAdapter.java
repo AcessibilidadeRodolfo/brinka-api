@@ -7,6 +7,8 @@ import org.brinka.brinkaapi.infra.persistence.mapper.UserMapper;
 import org.brinka.brinkaapi.infra.persistence.repository.JpaUserRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
 public class JpaUserRepositoryAdapter implements UserRepository {
@@ -14,8 +16,8 @@ public class JpaUserRepositoryAdapter implements UserRepository {
     private final UserMapper mapper;
 
     @Override
-    public User findUserByEmail(String email) {
-        return mapper.toDomain(jpaRepository.findByEmail(email));
+    public Optional<User> findUserByEmail(String email) {
+        return jpaRepository.findByEmail(email).map(mapper::toDomain);
     }
 
     @Override
