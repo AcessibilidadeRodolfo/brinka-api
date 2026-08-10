@@ -23,7 +23,7 @@ public record SignUpRequest(
         String email,
 
         @Valid
-        EnderecoRequest endereco,
+        AddressRequest address,
 
         @NotBlank(message = "obrigatória")
         @Size(

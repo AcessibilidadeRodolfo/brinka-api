@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
 @Getter
 @Setter
 @Builder
-public class Endereco {
+public class Address {
     private Integer id;
     private Integer id_usuario;
     private String cep;

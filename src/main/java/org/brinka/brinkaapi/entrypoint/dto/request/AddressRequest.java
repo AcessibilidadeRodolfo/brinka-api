@@ -3,7 +3,7 @@ package org.brinka.brinkaapi.entrypoint.dto.request;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
-public record EnderecoRequest(
+public record AddressRequest(
 
         @NotBlank(message = "obrigatório")
         @Pattern(

@@ -2,7 +2,7 @@ package org.brinka.brinkaapi.entrypoint.dto.request;
 
 import jakarta.validation.constraints.Pattern;
 
-public record UpdateEnderecoRequest(
+public record UpdateAddressRequest(
         @Pattern(
                 regexp = "^\\d{5}-?\\d{3}",
                 message = "sintaxe inválida"
