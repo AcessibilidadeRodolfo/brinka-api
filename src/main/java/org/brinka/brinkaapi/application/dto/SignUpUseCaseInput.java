@@ -5,6 +5,6 @@ public record SignUpUseCaseInput(
         String telefone,
         String email,
         String senha,
-        EnderecoInput endereco
+        AddressInput address
 ) {
 }

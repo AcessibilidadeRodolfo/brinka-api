@@ -19,7 +19,7 @@ public class User {
     private String nome;
     private String email;
     private String telefone;
-    private Endereco endereco;
+    private Address address;
     private String senha;
     private Boolean ehAdmin;
 }

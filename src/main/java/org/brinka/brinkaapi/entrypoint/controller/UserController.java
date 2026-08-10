@@ -5,9 +5,9 @@ import lombok.RequiredArgsConstructor;
 import org.brinka.brinkaapi.application.usecase.user.*;
 import org.brinka.brinkaapi.entrypoint.dto.request.AddCardRequest;
 import org.brinka.brinkaapi.entrypoint.dto.request.UpdateCardRequest;
-import org.brinka.brinkaapi.entrypoint.dto.request.UpdateEnderecoRequest;
+import org.brinka.brinkaapi.entrypoint.dto.request.UpdateAddressRequest;
 import org.brinka.brinkaapi.entrypoint.dto.response.CardResponse;
-import org.brinka.brinkaapi.entrypoint.dto.response.EnderecoResponse;
+import org.brinka.brinkaapi.entrypoint.dto.response.AddressResponse;
 import org.brinka.brinkaapi.entrypoint.mapper.RequestMapper;
 import org.brinka.brinkaapi.entrypoint.mapper.ResponseMapper;
 import org.springframework.http.HttpStatus;
@@ -24,8 +24,8 @@ public class UserController {
     private final AddCardUseCase addCardUseCase;
     private final UpdateCardUseCase updateCardUseCase;
     private final GetCardUseCase getCardUseCase;
-    private final GetEnderecoUseCase getEnderecoUseCase;
-    private final UpdateEnderecoUseCase updateEnderecoUseCase;
+    private final GetAddressUseCase getAddressUseCase;
+    private final UpdateAddressUseCase updateAddressUseCase;
 
     @GetMapping("/cartao")
     public ResponseEntity<CardResponse> getCard(Authentication authentication) {
@@ -48,17 +48,17 @@ public class UserController {
         return ResponseEntity.ok(responseMapper.toResponse(updateCardUseCase.execute(requestMapper.toInput(request), email)));
     }
 
-    @GetMapping("/endereco")
-    public ResponseEntity<EnderecoResponse> getEndereco(Authentication authentication) {
+    @GetMapping("/address")
+    public ResponseEntity<AddressResponse> getAddress(Authentication authentication) {
         String email = authentication.getName();
 
-        return ResponseEntity.ok(responseMapper.toResponse(getEnderecoUseCase.execute(email)));
+        return ResponseEntity.ok(responseMapper.toResponse(getAddressUseCase.execute(email)));
     }
 
-    @PatchMapping("/endereco")
-    public ResponseEntity<EnderecoResponse> updateEndereco(@RequestBody @Valid UpdateEnderecoRequest request, Authentication authentication) {
+    @PatchMapping("/address")
+    public ResponseEntity<AddressResponse> updateAddress(@RequestBody @Valid UpdateAddressRequest request, Authentication authentication) {
         String email = authentication.getName();
 
-        return ResponseEntity.ok(responseMapper.toResponse(updateEnderecoUseCase.execute(requestMapper.toInput(request), email)));
+        return ResponseEntity.ok(responseMapper.toResponse(updateAddressUseCase.execute(requestMapper.toInput(request), email)));
     }
 }

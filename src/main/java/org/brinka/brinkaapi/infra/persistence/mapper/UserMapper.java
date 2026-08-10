@@ -7,15 +7,15 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring", uses = EnderecoMapper.class)
+@Mapper(componentModel = "spring", uses = AddressMapper.class)
 public interface UserMapper {
     UserEntity toEntity(User domain);
     User toDomain(UserEntity entity);
 
     @AfterMapping
-    default void setEnderecoUsuario(@MappingTarget UserEntity user) {
-        if (user.getEndereco() != null) {
-            user.getEndereco().setUsuario(user);
+    default void setAddressUsuario(@MappingTarget UserEntity user) {
+        if (user.getAddress() != null) {
+            user.getAddress().setUsuario(user);
         }
     }
 }

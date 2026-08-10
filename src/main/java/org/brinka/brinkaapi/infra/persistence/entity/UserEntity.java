@@ -29,7 +29,7 @@ public class UserEntity implements UserDetails {
     private String senha;
     private Boolean ehAdmin;
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
-    private EnderecoEntity endereco;
+    private AddressEntity address;
     @OneToOne(mappedBy = "usuario")
     private CardEntity cartao;
 

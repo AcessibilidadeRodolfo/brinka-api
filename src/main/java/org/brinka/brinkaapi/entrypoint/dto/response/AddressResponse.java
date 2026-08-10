@@ -1,6 +1,6 @@
 package org.brinka.brinkaapi.entrypoint.dto.response;
 
-public record EnderecoResponse(
+public record AddressResponse(
          String cep,
          String rua,
          Integer numero,

@@ -3,22 +3,22 @@ package org.brinka.brinkaapi.application.usecase.user;
 import lombok.RequiredArgsConstructor;
 import org.brinka.brinkaapi.application.annotation.UseCase;
 import org.brinka.brinkaapi.domain.exception.UserNotFoundException;
-import org.brinka.brinkaapi.domain.model.Endereco;
-import org.brinka.brinkaapi.domain.exception.EnderecoNotFoundException;
-import org.brinka.brinkaapi.domain.repository.EnderecoRepository;
+import org.brinka.brinkaapi.domain.model.Address;
+import org.brinka.brinkaapi.domain.exception.AddressNotFoundException;
+import org.brinka.brinkaapi.domain.repository.AddressRepository;
 import org.brinka.brinkaapi.domain.repository.UserRepository;
 
 @UseCase
 @RequiredArgsConstructor
-public class GetEnderecoUseCase {
-    private final EnderecoRepository enderecoRepository;
+public class GetAddressUseCase {
+    private final AddressRepository addressRepository;
     private final UserRepository userRepository;
 
-    public Endereco execute(String email) {
+    public Address execute(String email) {
         var user = userRepository.findUserByEmail(email)
                 .orElseThrow(UserNotFoundException::new);
 
-        return enderecoRepository.findEnderecoByUser(user)
-                .orElseThrow(() -> new EnderecoNotFoundException(user.getEmail()));
+        return addressRepository.findAddressByUser(user)
+                .orElseThrow(() -> new AddressNotFoundException(user.getEmail()));
     }
 }

@@ -22,6 +22,6 @@ public interface RequestMapper {
     // SignUp Requests
     SignUpUseCaseInput toInput(SignUpRequest request);
 
-    // Endereco Requests
-    EnderecoInput toInput(UpdateEnderecoRequest request);
+    // Address Requests
+    AddressInput toInput(UpdateAddressRequest request);
 }
