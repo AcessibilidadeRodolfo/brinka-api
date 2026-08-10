@@ -7,8 +7,6 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
 
-import java.math.BigDecimal;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
