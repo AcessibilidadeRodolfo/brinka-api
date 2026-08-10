@@ -56,7 +56,7 @@ public class UserController {
     }
 
     @PatchMapping("/endereco")
-    public ResponseEntity<EnderecoResponse> updateEndereco(UpdateEnderecoRequest request, Authentication authentication) {
+    public ResponseEntity<EnderecoResponse> updateEndereco(@RequestBody @Valid UpdateEnderecoRequest request, Authentication authentication) {
         String email = authentication.getName();
 
         return ResponseEntity.ok(responseMapper.toResponse(updateEnderecoUseCase.execute(requestMapper.toInput(request), email)));
