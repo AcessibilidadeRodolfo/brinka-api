@@ -30,6 +30,8 @@ public class UserEntity implements UserDetails {
     private Boolean ehAdmin;
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private AddressEntity address;
+    @OneToMany(mappedBy = "usuario")
+    private List<ReviewEntity> avaliacoes;
     @OneToOne(mappedBy = "usuario")
     private CardEntity cartao;
 

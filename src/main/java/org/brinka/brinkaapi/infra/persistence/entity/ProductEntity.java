@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,6 +24,8 @@ public class ProductEntity {
     @ManyToOne
     @JoinColumn(name = "id_categoria")
     private CategoryEntity categoria;
+    @OneToMany(mappedBy = "usuario")
+    private List<ReviewEntity> avaliacoes;
     private String descricao;
     private BigDecimal preco;
     private Integer estoque;

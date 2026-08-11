@@ -7,8 +7,7 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
 
-import java.math.BigDecimal;
-import java.util.List;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,13 +15,11 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class Product {
+public class Review {
     private Integer id;
-    private String imagem;
-    private String nome;
-    private Category categoria;
-    private String descricao;
-    private BigDecimal preco;
-    private Integer estoque;
-    private List<Review> avaliacoes;
+    private Product produto;
+    private User usuario;
+    private String comentario;
+    private Integer nota;
+    private LocalDate data;
 }
