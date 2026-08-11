@@ -24,7 +24,7 @@ public class ProductEntity {
     @ManyToOne
     @JoinColumn(name = "id_categoria")
     private CategoryEntity categoria;
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "produto")
     private List<ReviewEntity> avaliacoes;
     private String descricao;
     private BigDecimal preco;
