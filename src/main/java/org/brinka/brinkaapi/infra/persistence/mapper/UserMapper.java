@@ -7,7 +7,13 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring", uses = AddressMapper.class)
+@Mapper(
+        componentModel = "spring",
+        uses = {
+                AddressMapper.class,
+                ReviewMapper.class
+        }
+)
 public interface UserMapper {
     UserEntity toEntity(User domain);
     User toDomain(UserEntity entity);
