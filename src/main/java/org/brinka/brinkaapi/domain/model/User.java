@@ -22,4 +22,5 @@ public class User {
     private Address address;
     private String senha;
     private Boolean ehAdmin;
+    private List<Review> avaliacoes;
 }
