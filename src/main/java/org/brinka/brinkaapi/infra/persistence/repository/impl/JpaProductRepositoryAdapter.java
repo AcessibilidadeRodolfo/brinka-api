@@ -48,6 +48,11 @@ public class JpaProductRepositoryAdapter implements ProductRepository {
     }
 
     @Override
+    public Optional<Product> findProductByIdWithAvaliacoes(Integer id) {
+        return jpaRepository.findWithAvaliacoesById(id).map(mapper::toDomainWithReviews);
+    }
+
+    @Override
     public List<Product> findProductsById(List<Integer> id) {
         return jpaRepository.findAllById(id).stream()
                 .map(mapper::toDomain)

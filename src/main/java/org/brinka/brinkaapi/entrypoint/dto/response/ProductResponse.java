@@ -3,6 +3,7 @@ package org.brinka.brinkaapi.entrypoint.dto.response;
 import org.brinka.brinkaapi.domain.model.Product;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public record ProductResponse(
         Integer id,
@@ -11,17 +12,8 @@ public record ProductResponse(
         String categoria,
         String descricao,
         BigDecimal preco,
+        List<ReviewResponse> avaliacoes,
         Integer estoque
 ) {
-    public static ProductResponse from(Product product) {
-        return new ProductResponse(
-                product.getId(),
-                product.getImagem(),
-                product.getNome(),
-                product.getCategoria().getDescricao(),
-                product.getDescricao(),
-                product.getPreco(),
-                product.getEstoque()
-        );
-    }
+
 }
