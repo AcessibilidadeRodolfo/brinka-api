@@ -15,7 +15,9 @@ import org.mapstruct.MappingTarget;
         }
 )
 public interface UserMapper {
+    @Mapping(target = "avaliacoes", ignore = true)
     UserEntity toEntity(User domain);
+    @Mapping(target = "avaliacoes", ignore = true)
     User toDomain(UserEntity entity);
 
     @AfterMapping

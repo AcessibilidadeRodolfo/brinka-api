@@ -7,7 +7,7 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,5 +21,5 @@ public class Review {
     private User usuario;
     private String comentario;
     private Integer nota;
-    private LocalDate data;
+    private Date data;
 }

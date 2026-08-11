@@ -30,8 +30,8 @@ public class ProductController {
     private final UpdateProductUseCase updateProductUseCase;
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductResponse> findProductById(@PathVariable Integer id) {
-        return ResponseEntity.ok(responseMapper.toResponse(findProductByIdUseCase.execute(id)));
+    public ResponseEntity<ProductResponse> findProductById(@PathVariable Integer id, @RequestParam(required = false) Boolean avaliacoes) {
+        return ResponseEntity.ok(responseMapper.toResponse(findProductByIdUseCase.execute(id, avaliacoes)));
     }
 
     @GetMapping

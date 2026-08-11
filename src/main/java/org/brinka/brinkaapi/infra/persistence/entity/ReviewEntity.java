@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -26,5 +26,5 @@ public class ReviewEntity {
     private UserEntity usuario;
     private String comentario;
     private Integer nota;
-    private LocalDate data;
+    private Date data;
 }
