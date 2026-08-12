@@ -9,6 +9,7 @@ import org.brinka.brinkaapi.domain.model.OrderItem;
 import org.brinka.brinkaapi.domain.model.Payment;
 import org.brinka.brinkaapi.domain.model.Product;
 import org.brinka.brinkaapi.domain.model.Review;
+import org.brinka.brinkaapi.domain.model.User;
 import org.brinka.brinkaapi.entrypoint.dto.response.CardResponse;
 import org.brinka.brinkaapi.entrypoint.dto.response.AddressResponse;
 import org.brinka.brinkaapi.entrypoint.dto.response.CartResponse;
@@ -52,4 +53,7 @@ public interface ResponseMapper {
     @Mapping(source = "tipo.descricao", target = "tipo")
     @Mapping(source = "status.descricao", target = "status")
     OrderPaymentResponse toResponse(Payment payment);
+
+    // User Responses
+    UserResponse toResponse(User user);
 }
