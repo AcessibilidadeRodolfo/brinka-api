@@ -11,13 +11,17 @@ import org.brinka.brinkaapi.application.usecase.user.cart.RemoveCartItemUseCase;
 import org.brinka.brinkaapi.application.usecase.user.cart.UpdateCartItemUseCase;
 import org.brinka.brinkaapi.application.usecase.user.address.GetAddressUseCase;
 import org.brinka.brinkaapi.application.usecase.user.address.UpdateAddressUseCase;
+import org.brinka.brinkaapi.application.usecase.user.profile.GetUserProfileUseCase;
+import org.brinka.brinkaapi.application.usecase.user.profile.UpdateUserProfileUseCase;
 import org.brinka.brinkaapi.domain.enums.CartOperation;
 import org.brinka.brinkaapi.entrypoint.dto.request.AddCardRequest;
 import org.brinka.brinkaapi.entrypoint.dto.request.UpdateCardRequest;
 import org.brinka.brinkaapi.entrypoint.dto.request.UpdateAddressRequest;
+import org.brinka.brinkaapi.entrypoint.dto.request.UpdateUserRequest;
 import org.brinka.brinkaapi.entrypoint.dto.response.CardResponse;
 import org.brinka.brinkaapi.entrypoint.dto.response.AddressResponse;
 import org.brinka.brinkaapi.entrypoint.dto.response.CartResponse;
+import org.brinka.brinkaapi.entrypoint.dto.response.UserResponse;
 import org.brinka.brinkaapi.entrypoint.mapper.RequestMapper;
 import org.brinka.brinkaapi.entrypoint.mapper.ResponseMapper;
 import org.springframework.http.HttpStatus;
@@ -40,6 +44,22 @@ public class UserController {
     private final GetCartUseCase getCartUseCase;
     private final RemoveCartItemUseCase removeCartItemUseCase;
     private final UpdateCartItemUseCase updateCartItemUseCase;
+    private final GetUserProfileUseCase getUserProfileUseCase;
+    private final UpdateUserProfileUseCase updateUserProfileUseCase;
+
+    @GetMapping
+    public ResponseEntity<UserResponse> getProfile(Authentication authentication) {
+        String email = authentication.getName();
+
+        return ResponseEntity.ok(responseMapper.toResponse(getUserProfileUseCase.execute(email)));
+    }
+
+    @PatchMapping
+    public ResponseEntity<UserResponse> updateProfile(@RequestBody @Valid UpdateUserRequest request, Authentication authentication) {
+        String email = authentication.getName();
+
+        return ResponseEntity.ok(responseMapper.toResponse(updateUserProfileUseCase.execute(requestMapper.toInput(request), email)));
+    }
 
     @GetMapping("/cartao")
     public ResponseEntity<CardResponse> getCard(Authentication authentication) {

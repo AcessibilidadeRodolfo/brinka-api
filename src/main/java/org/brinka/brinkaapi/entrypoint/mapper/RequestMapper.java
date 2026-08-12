@@ -24,4 +24,7 @@ public interface RequestMapper {
 
     // Address Requests
     AddressInput toInput(UpdateAddressRequest request);
+
+    // User Requests
+    UserProfileInput toInput(UpdateUserRequest request);
 }
