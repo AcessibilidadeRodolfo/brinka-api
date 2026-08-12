@@ -16,6 +16,8 @@ public class UpdateUserProfileUseCase {
         var user = userRepository.findUserByEmail(email)
                 .orElseThrow(UserNotFoundException::new);
 
+        if (input.email() != null)
+            user.setEmail(input.email());
         if (input.nome() != null)
             user.setNome(input.nome());
         if (input.telefone() != null)
