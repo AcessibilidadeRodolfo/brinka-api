@@ -27,4 +27,4 @@ correios:
   cep-origem: ${CEP_ORIGEM}
 app:
   cors:
-    allowed-origins:
+    allowed-origins: https://brinka-frontend.onrender.com
