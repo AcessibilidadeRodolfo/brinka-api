@@ -35,6 +35,8 @@ public class UpdateAddressUseCase {
         if (input.rua() != null)
             address.setRua(input.rua());
 
+        address.setIdUsuario(user.getId());
+
         return repository.save(address);
     }
 }
