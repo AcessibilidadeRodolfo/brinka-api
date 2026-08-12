@@ -5,7 +5,7 @@ import org.brinka.brinkaapi.infra.persistence.entity.AddressEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = UserMapper.class)
 public interface AddressMapper {
     @Mapping(target = "usuario", ignore = true)
     AddressEntity toEntity(Address domain);
