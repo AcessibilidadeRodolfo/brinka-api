@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
 @Builder
 public class Address {
     private Integer id;
-    private Integer id_usuario;
+    private User usuario;
     private String cep;
     private String rua;
     private Integer numero;
