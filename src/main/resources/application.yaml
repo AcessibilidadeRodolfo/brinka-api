@@ -25,3 +25,6 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 correios:
   cep-origem: ${CEP_ORIGEM}
+app:
+  cors:
+    allowed-origins:
