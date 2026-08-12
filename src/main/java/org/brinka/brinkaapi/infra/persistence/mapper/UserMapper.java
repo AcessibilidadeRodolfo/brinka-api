@@ -26,11 +26,4 @@ public interface UserMapper {
             user.getAddress().setUsuario(user);
         }
     }
-
-    @AfterMapping
-    default void setAddressUsuario(@MappingTarget User user) {
-        if (user.getAddress() != null) {
-            user.getAddress().setUsuario(user);
-        }
-    }
 }
