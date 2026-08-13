@@ -18,7 +18,7 @@ public class SignUpUseCase {
     private final TokenService tokenService;
 
     public String execute(SignUpUseCaseInput signUpUseCaseInput) {
-        if (userRepository.findUserByEmail(signUpUseCaseInput.email()) != null)
+        if (userRepository.findUserByEmail(signUpUseCaseInput.email()).isPresent())
             throw new EmailAlreadyExistsException(signUpUseCaseInput.email());
 
         String hashedPassword = passwordEncoder.encode(signUpUseCaseInput.senha());
