@@ -29,7 +29,7 @@ public class SignUpUseCase {
                 .senha(hashedPassword)
                 .ehAdmin(false)
                 .address(Address.builder()
-                        .cep(signUpUseCaseInput.address().cep())
+                        .cep(signUpUseCaseInput.address().cep().replace("-", ""))
                         .rua(signUpUseCaseInput.address().rua())
                         .numero(signUpUseCaseInput.address().numero())
                         .complemento(signUpUseCaseInput.address().complemento())
